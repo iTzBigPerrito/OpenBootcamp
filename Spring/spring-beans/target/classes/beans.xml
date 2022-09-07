@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- El atributo id del Bean es el nombre con el que se debe llamar a dicho Bean al instanciarlo.
+         El atributo class es el path en donde está la clase que se añadirá al contenedor de Beans
+         El atributo scope define el comportamiento de Spring al gestionar los Beans:
+                     *prototype= Crea un nuevo Bean cada vez que se lo llame en la aplicación
+                     *singleton= Crea un solo objeto y Spring lo reutiliza cada vez que se lo llame en la aplicación-->
+    <bean id="calculadora" class="com.example.Calculadora" scope="prototype">
+    </bean>
+
+    <bean id="gestorFacturas" class="com.example.GestorFacturas">
+        <!--Para enviar los parámetros del constructor de un objeto se los envía con el tag constructor-arg-->
+        <constructor-arg name="calculadora" ref="calculadora"/>
+        <constructor-arg name="nombre" value="Facturator 3000"/>
+        <!--    atributo name="Nombre del atributo que está en la clase GestorFacturas"
+
+                atributo ref="Nombre del Bean que será enviado como atributo a la clase GestorFacturas
+                OJO: Se usa cuando el parámetro del constructor es otra clase"
+
+                atributo value="Nombre para agregar a ese atributo de la clase"-->
+    </bean>
+
+</beans>

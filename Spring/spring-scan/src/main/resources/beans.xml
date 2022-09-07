@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Al escanear automáticamente los beans con Spring, la cabecera del archivo .xml requiere de ciertas modificaciones
+     que se pueden encontrar en la documentación de Spring.io-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Mediante esta línea se escanea el paquete en busca de Beans que se especifica en el atributo base-package
+         Para que los beans sean encontrados hay que agregar una anotación propia de Spring en las clases que queremos
+         que sean consideradas Beans-->
+    <context:component-scan base-package="com.example"/>
+
+</beans>
